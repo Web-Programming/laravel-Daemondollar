@@ -17,8 +17,21 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/profile', function () {
-    return view('profile');
+Route::get('/dosen', function () {
+    return view('dosen');
+});
+
+Route::get("/dosen/index", function() {
+        return view('dosen.index');
+});
+
+Route::get('/fakultas', function() {
+//  return view('fakultas.index', ["ilkom" => "Fakultas ilmu Komputer dan Rekayasa"]);
+//  return view('fakultas.index', ["fakultas" => ["Fakultas Ilmu dan Rekayasa", "Fakultas Ilmu Ekonomi"]]);
+//  return view('fakultas.index') -> with("fakultas", ["Fakultas Ilmu Komputer dan Rekayasa", "Fakultas ilmu Ekonomi"]);
+    $fakultas = ["Fakultas ilmu komputer dan Rekayasa", "Fakultas ilmu Ekonomi"];
+    $kampus = "Universitas Multi Data Palembang";
+    return view('fakultas.index', compact('fakultas', 'kampus'));
 });
 
 //toute with param (wajib)
